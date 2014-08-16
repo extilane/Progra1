@@ -14,7 +14,7 @@ import javax.sound.sampled.spi.AudioFileReader;
 public class MetaDatos
 {
     private String Artista,Album,Titulo;
-    private int anno,largo;
+    private int year,largo;
     
     public MetaDatos(){
     } //throws ID3Exception
@@ -74,7 +74,7 @@ public class MetaDatos
                 Titulo=oID3V2_3_0Tag.getTitle();
                 oID3V2_3_0Tag.getExtendedHeader();
                 try {
-                    anno=oID3V2_3_0Tag.getYear();
+                    year=oID3V2_3_0Tag.getYear();
                 } catch (ID3Exception ex) {
                     Logger.getLogger(MetaDatos.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -99,8 +99,8 @@ public int getDuracion(File file) {
     public String getAlbum(){
     return this.Album;
     }
-    public int getAnno(){
-    return this.anno;
+    public int getyear(){
+    return this.year;
     }
     public int getLargo(){
     return largo;
