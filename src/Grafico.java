@@ -44,6 +44,7 @@ public class Grafico extends javax.swing.JFrame{
 
         Texto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Lsonar = new javax.swing.JLabel();
@@ -60,6 +61,8 @@ public class Grafico extends javax.swing.JFrame{
         });
 
         jLabel2.setText("jLabel2");
+
+        jLabel1.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mega Reproductor");
@@ -81,16 +84,16 @@ public class Grafico extends javax.swing.JFrame{
         });
 
         Lsonar.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
-        Lsonar.setText("  ");
+        Lsonar.setText("Artista:");
 
         Album.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
-        Album.setText(" ");
+        Album.setText("Album:");
 
         Titulo.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
-        Titulo.setText("  ");
+        Titulo.setText("Titulo:");
 
         anno.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
-        anno.setText("  ");
+        anno.setText("Año:");
 
         MegaRe.setBackground(new java.awt.Color(102, 102, 255));
         MegaRe.setFont(new java.awt.Font("Abyssinica SIL", 0, 24)); // NOI18N
@@ -142,9 +145,9 @@ public class Grafico extends javax.swing.JFrame{
                 .addComponent(Album, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addComponent(anno)
-                .addGap(33, 33, 33))
+                .addGap(31, 31, 31))
         );
 
         pack();
@@ -289,6 +292,7 @@ public class Grafico extends javax.swing.JFrame{
     private javax.swing.JLabel anno;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
