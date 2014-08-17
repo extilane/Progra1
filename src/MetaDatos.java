@@ -7,7 +7,7 @@ import org.jaudiotagger.tag.KeyNotFoundException;
 import org.jaudiotagger.tag.Tag;
 public class MetaDatos
 {
-    private String Artista,Album,Titulo,year;
+    private String Artista,Album,Titulo,year,BPM;
     
     private int duracion;
     Tag tag;
@@ -33,17 +33,13 @@ public class MetaDatos
                 Album=tag.getFirst(FieldKey.ALBUM);
                 Titulo=tag.getFirst(FieldKey.TITLE);
                 year=tag.getFirst(FieldKey.YEAR);
+                
+                 BPM = tag.getFirst(FieldKey.FBPM);
         }catch(KeyNotFoundException e){
         
         }
     }
-public int getDuracion(File file) {    
-        return 0;
-        
 
-    
-
-}
 
 
     public String getArtista(){
