@@ -92,8 +92,13 @@ public class Grafico extends javax.swing.JFrame{
         anno.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
         anno.setText("  ");
 
+        MegaRe.setBackground(new java.awt.Color(102, 102, 255));
         MegaRe.setFont(new java.awt.Font("Abyssinica SIL", 0, 24)); // NOI18N
         MegaRe.setText("Mega Reproductor");
+
+        Progreso.setToolTipText("");
+        Progreso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Progreso.setName(""); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,29 +112,27 @@ public class Grafico extends javax.swing.JFrame{
                         .addGap(38, 38, 38)
                         .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Lsonar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Album, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(anno, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(98, 98, 98)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(Lsonar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Album, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(anno, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)))
+                        .addGap(111, 111, 111)
+                        .addComponent(MegaRe)))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
+                .addGap(29, 29, 29)
+                .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -164,7 +167,7 @@ public class Grafico extends javax.swing.JFrame{
         g.setPath(ruta);
         if(sonando){
 
-         datos.meta(ruta);
+        datos.meta(ruta);
         sonando=false;
         sonar=true;
         g.play(-1);
@@ -173,10 +176,45 @@ public class Grafico extends javax.swing.JFrame{
             JOptionPane.showMessageDialog(null, "la cancion esta sonando");
             
         }
-        Lsonar.setText(datos.getArtista());
-        Titulo.setText(datos.getTitulo());
-        Album.setText(datos.getAlbum());
-        anno.setText(Integer.toString(datos.getAnno()));
+        try{
+        Lsonar.setText("Artista: "+datos.getArtista());
+        }catch(Exception e){}
+        try{
+        Titulo.setText("Titulo: "+datos.getTitulo());
+        }catch(Exception e){}
+        try{
+        Album.setText("Album: "+datos.getAlbum());
+        }catch(Exception e){}
+        try{
+        anno.setText("Año: "+datos.getyear());
+        }catch(Exception e){}
+        new Thread(
+            new Runnable(){
+                @SuppressWarnings("empty-statement")
+                @Override
+                public void run(){
+                    try{
+                        int i=0;
+                        double b=0;
+                        while(true){
+                       while(sonar){
+                       Progreso.setValue(i);
+                       
+                       i=(int) ((100*b)/datos.getLargo());//los 252 son segundos cuando logre
+                       b+=0.1;//sacar la duracion del track en minotos se miltiplica por 60
+                       Thread.sleep(100);
+                       if(sonar==false); 
+                        break;
+                       }
+                        }
+                        //4:12
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(null, "nada");
+                        
+                    }
+                }
+            }
+    ).start();
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked

@@ -1,40 +1,63 @@
 //Librerias de uso
 import java.io.*;
-import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.*;
-import org.blinkenlights.jid3.*;
-import org.blinkenlights.jid3.v1.*;
-import org.blinkenlights.jid3.v2.*;
-import javax.sound.sampled.spi.AudioFileReader;
+//import java.util.Map;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+//import javax.sound.sampled.*;
+//import org.blinkenlights.jid3.*;
+//import org.blinkenlights.jid3.v1.*;
+//import org.blinkenlights.jid3.v2.*;
+import org.jaudiotagger.audio.AudioFile;
+import org.jaudiotagger.audio.AudioFileIO;
+import org.jaudiotagger.tag.FieldKey;
+import org.jaudiotagger.tag.KeyNotFoundException;
+import org.jaudiotagger.tag.Tag;
 //import org.tritonus.share.sampled.file.TAudioFileReader;
 //import org.tritonus.share.sampled.TAudioFor1mat;
 //import org.tritonus.share.sampled.file.TAudioFileFormat;
 public class MetaDatos
 {
-    private String Artista,Album,Titulo;
-    private int year,largo;
-    
+    private String Artista,Album,Titulo,year;
+    private int sec;
+    int duracion;
+    Tag tag;
     public MetaDatos(){
     } //throws ID3Exception
+   /*     
+   private static void getDurationWithMp3Spi(File file) throws UnsupportedAudioFileException, IOException {
+
+    AudioFileFormat fileFormat = AudioSystem.getAudioFileFormat(file);
+    if (fileFormat instanceof AudioFileFormat) {
+        Map<?, ?> properties = ((AudioFileFormat) fileFormat).properties();
+        String key = "duration";
+        Long microseconds = (Long) properties.get(key);
+        int mili = (int) (microseconds / 1000);
+        int sec = (mili / 1000) % 60;
+        int min = (mili / 1000) / 60;
         
-    public void meta(String mp3) {
+    } else {
+        throw new UnsupportedAudioFileException();
+    }
+
+}*/
+    public void meta(String mp3){
         
       
        
-        //mp3 = "/mnt/hgfs/Ubunto/03 Obsesionario en LA Mayor.mp3";
-        // the file we are going to read
+       
         File oSourceFile = new File(mp3);
-      /*  
-        AudioFileFormat baseFileFormat;
-        baseFileFormat = new MpegAudioFileReader().getAudioFileFormat(oSourceFile);
-        Map properties = baseFileFormat.properties();
-        Long duration = (Long) properties.get("duration");
-*/
-        // create an MP3File object representing our chosen file
-        MediaFile oMediaFile = new MP3File(oSourceFile);
+        try {
+    AudioFile audioFile = AudioFileIO.read(oSourceFile);
+    duracion = audioFile.getAudioHeader().getTrackLength();
+    tag=audioFile.getTag();
+    
+    } catch (Exception e) {
+    e.printStackTrace();
 
+}
+       /* // create an MP3File object representing our chosen file
+        MediaFile oMediaFile = new MP3File(oSourceFile);
+        //oMediaFile.getTags();
         // any tags read from the file are returned, in an array, in an order which you should not assume
         ID3Tag[] aoID3Tag = null;
         try {
@@ -51,6 +74,7 @@ public class MetaDatos
                 {
                     System.out.println("Title = " + oID3V1_0Tag.getTitle());
                 }
+                
                
                 // etc.
             } else if (aoID3Tag1 instanceof ID3V2_3_0Tag) {
@@ -69,9 +93,7 @@ public class MetaDatos
                 //oID3V2_3_0Tag.setAlbum("tila se va a morir");
                 // System.out.println("Album = " + oID3V2_3_0Tag.getAlbum());//
                 // System.out.println("Artista = " + oID3V2_3_0Tag.getArtist());
-                Artista=oID3V2_3_0Tag.getArtist();
-                Album=oID3V2_3_0Tag.getAlbum();
-                Titulo=oID3V2_3_0Tag.getTitle();
+                
                 oID3V2_3_0Tag.getExtendedHeader();
                 try {
                     year=oID3V2_3_0Tag.getYear();
@@ -79,6 +101,13 @@ public class MetaDatos
                     Logger.getLogger(MetaDatos.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        }*/     try{
+                Artista=tag.getFirst(FieldKey.ARTIST);
+                Album=tag.getFirst(FieldKey.ALBUM);
+                Titulo=tag.getFirst(FieldKey.TITLE);
+                year=tag.getFirst(FieldKey.YEAR);
+        }catch(KeyNotFoundException e){
+        
         }
     }
 public int getDuracion(File file) {    
@@ -99,11 +128,11 @@ public int getDuracion(File file) {
     public String getAlbum(){
     return this.Album;
     }
-    public int getyear(){
+    public String getyear(){
     return this.year;
     }
     public int getLargo(){
-    return largo;
+    return duracion;
     }
     public void setTitulo(String m){
     this.Titulo=m;
