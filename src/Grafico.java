@@ -22,8 +22,9 @@ public class Grafico extends javax.swing.JFrame{
     
      //   MetaDatos m=new MetaDatos('/mnt/hgfs/Ubunto/03 Obsesionario en LA Mayor.mp3');
     
-    boolean sonar=false;
-    boolean sonando=true;
+    private boolean sonar=false;
+    private boolean sonando=true;
+
     /**
      * Creates new form Grafico
      */
@@ -45,15 +46,19 @@ public class Grafico extends javax.swing.JFrame{
         Texto = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista = new javax.swing.JList();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        MegaRe = new javax.swing.JLabel();
+        lDuracion = new javax.swing.JLabel();
+        anno = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+        Album = new javax.swing.JLabel();
+        Lsonar = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        Lsonar = new javax.swing.JLabel();
-        Album = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
-        anno = new javax.swing.JLabel();
-        MegaRe = new javax.swing.JLabel();
         Progreso = new javax.swing.JProgressBar();
-        lDuracion = new javax.swing.JLabel();
 
         Texto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,10 +70,66 @@ public class Grafico extends javax.swing.JFrame{
 
         jLabel1.setText("jLabel1");
 
+        lista.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lista);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 192, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mega Reproductor");
         setBackground(java.awt.Color.pink);
         setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+
+        jPanel2.setBackground(new java.awt.Color(0, 255, 25));
+
+        MegaRe.setBackground(new java.awt.Color(102, 102, 255));
+        MegaRe.setFont(new java.awt.Font("Abyssinica SIL", 0, 24)); // NOI18N
+        MegaRe.setText("Mega Reproductor");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(MegaRe)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+
+        lDuracion.setFont(new java.awt.Font("Abyssinica SIL", 0, 14)); // NOI18N
+        lDuracion.setText("Duracion:");
+
+        anno.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
+        anno.setText("Año:");
+
+        Titulo.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
+        Titulo.setText("Titulo:");
+
+        Album.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
+        Album.setText("Album:");
+
+        Lsonar.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
+        Lsonar.setText("Artista:");
 
         jButton1.setText("Sonar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,6 +149,7 @@ public class Grafico extends javax.swing.JFrame{
                 jButton2MouseClicked(evt);
             }
         });
+<<<<<<< HEAD
 
         Lsonar.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
         Lsonar.setText("Artista:");
@@ -105,21 +167,28 @@ public class Grafico extends javax.swing.JFrame{
         MegaRe.setFont(new java.awt.Font("Arabic Typesetting", 0, 24)); // NOI18N
         MegaRe.setForeground(new java.awt.Color(204, 204, 0));
         MegaRe.setText("Mega Reproductor");
+=======
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+>>>>>>> origin/master
 
         Progreso.setToolTipText("");
         Progreso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Progreso.setName(""); // NOI18N
 
-        lDuracion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lDuracion.setText("Duracion:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
                         .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -138,137 +207,167 @@ public class Grafico extends javax.swing.JFrame{
                             .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(98, Short.MAX_VALUE))
+=======
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton1)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Lsonar, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Album, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(anno, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(42, Short.MAX_VALUE))
+>>>>>>> origin/master
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 5, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(Lsonar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Album, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Titulo)
+                .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(anno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-         JFileChooser seleccionar=new JFileChooser();
-         FileNameExtensionFilter filtromp3=new FileNameExtensionFilter("Solo MP3","mp3");
-         seleccionar.setFileFilter(filtromp3);
-         String ruta;
-         int seleccionado =seleccionar.showOpenDialog(null);
-         try{
-            File archivo = seleccionar.getSelectedFile();
-            
-             ruta = archivo.getAbsolutePath();
-         }catch(Exception e){
-             JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo de mp3");
-             return ;  
-         }
-        g.setPath(ruta);
-        if(sonando){
+    private void TextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextoActionPerformed
 
-        datos.meta(ruta);
-        sonando=false;
-        sonar=true;
-        g.play(-1);
-        }else{
-            
-            JOptionPane.showMessageDialog(null, "la cancion esta sonando");
-            
-        }
-        try{
-        Lsonar.setText("Artista: "+datos.getArtista());
-        }catch(Exception e){}
-        try{
-        Titulo.setText("Titulo: "+datos.getTitulo());
-        }catch(Exception e){}
-        try{
-        Album.setText("Album: "+datos.getAlbum());
-        }catch(Exception e){}
-        try{
-        anno.setText("Año: "+datos.getyear());
-        }catch(Exception e){}
-         try{
-        lDuracion.setText("Duracion: "+Double.toString(datos.getLargo()/60)+"min");
-        }catch(Exception e){}
-        new Thread(
-            new Runnable(){
-                @SuppressWarnings("empty-statement")
-                @Override
-                public void run(){
-                    try{
-                        int i=0;
-                        double b=0;
-                        Progreso.setValue(0);
-                        while(true){
-                       while(sonar){
-                       Progreso.setValue(i);
-                       
-                       i=(int) ((100*b)/datos.getLargo());//los 252 son segundos cuando logre
-                       b+=1;//sacar la duracion del track en minotos se miltiplica por 60
-                       Thread.sleep(1000);
-                       if(Progreso.getValue()>=100){
-                           Progreso.setValue(0);
-                           sonando=true;
-                       }
-                       if(sonar==false&&Progreso.getValue()>=100); 
-                       break;
-                       }
-                       
-                       
-                        }
-                        //4:12
-                    }catch(Exception e){}
-       
-                }
-            }
-    ).start();
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         if (sonar && sonando==false){
             //Lsonar.setText("detenido");
             sonar=false;
             jButton2.setText("Reanudar");
-//            anno.setText(Boolean.toString(g.getPosition()));
+            //            anno.setText(Boolean.toString(g.getPosition()));
             g.pause();
         }
         else{
-           sonar=true;
-       Lsonar.setText(datos.getArtista());
-       jButton2.setText("Pausar"); 
-       g.resume();
+            sonar=true;
+            //Lsonar.setText(datos.getArtista());
+            jButton2.setText("Pausar");
+            g.resume();
         }
-            
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton2MouseClicked
 
-    private void TextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextoActionPerformed
+    }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        JFileChooser seleccionar=new JFileChooser();
+        FileNameExtensionFilter filtromp3=new FileNameExtensionFilter("Solo MP3","mp3");
+        seleccionar.setFileFilter(filtromp3);
+        String ruta;
+
+        int seleccionado =seleccionar.showOpenDialog(null);
+        try{
+            File archivo = seleccionar.getSelectedFile();
+
+            ruta = archivo.getAbsolutePath();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Por favor seleccione un archivo de mp3");
+            return ;
+        }
+        g.setPath(ruta);
+        if(sonando){
+
+            datos.meta(ruta);
+            sonando=false;
+            sonar=true;
+            g.play(-1);
+        }else{
+
+            JOptionPane.showMessageDialog(null, "la cancion esta sonando");
+
+        }
+        try{
+            Lsonar.setText("Artista: "+datos.getArtista());
+        }catch(Exception e){}
+        try{
+            Titulo.setText("Titulo: "+datos.getTitulo());
+        }catch(Exception e){}
+        try{
+            Album.setText("Album: "+datos.getAlbum());
+        }catch(Exception e){}
+        try{
+            anno.setText("Año: "+datos.getyear());
+        }catch(Exception e){}
+        try{
+            lDuracion.setText("Duracion: "+Double.toString(datos.getLargo()/60)+" min");
+        }catch(Exception e){}
+        new Thread(
+            new Runnable(){
+                @SuppressWarnings({"empty-statement", "SleepWhileInLoop"})
+                @Override
+                public void run(){
+                    try{
+                        double i=0;
+                        int b=0;
+                        int segundos=datos.getLargo();
+                        //Progreso.setValue(0);
+                        while(true){
+
+                            while(sonar==true){
+                                Progreso.setValue((int)i);
+
+                                i= ((b*100)/segundos);//los 252 son segundos cuando logre
+                                b++;//sacar la duracion del track en minotos se miltiplica por 60
+                                System.out.println(Progreso.getValue());
+                                Thread.sleep(1000);
+                                if(Progreso.getValue()==100){
+                                    Progreso.setValue(0);
+                                    sonar = false;
+                                    sonando=true;
+                                    Thread.interrupted();
+                                    break;
+                                }
+                                if(sonar==false) {
+                                    break;
+                                 
+                                 
+                                }
+                            }
+                           Progreso.setValue((int)i);
+                           if (i==100){
+                           Progreso.setValue(0);
+                           }
+                        }
+
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(null, "Ocurrio un error");
+                    }
+
+                }
+            }
+        ).start();
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -319,6 +418,10 @@ public class Grafico extends javax.swing.JFrame{
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lDuracion;
+    private javax.swing.JList lista;
     // End of variables declaration//GEN-END:variables
 }
