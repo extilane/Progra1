@@ -149,7 +149,7 @@ public class Grafico extends javax.swing.JFrame{
                 jButton2MouseClicked(evt);
             }
         });
-<<<<<<< HEAD
+//<<<<<<< HEAD
 
         Lsonar.setFont(new java.awt.Font("Abyssinica SIL", 0, 15)); // NOI18N
         Lsonar.setText("Artista:");
@@ -167,13 +167,13 @@ public class Grafico extends javax.swing.JFrame{
         MegaRe.setFont(new java.awt.Font("Arabic Typesetting", 0, 24)); // NOI18N
         MegaRe.setForeground(new java.awt.Color(204, 204, 0));
         MegaRe.setText("Mega Reproductor");
-=======
+//=======
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
->>>>>>> origin/master
+//>>>>>>> origin/master
 
         Progreso.setToolTipText("");
         Progreso.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -188,7 +188,7 @@ public class Grafico extends javax.swing.JFrame{
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
+//<<<<<<< HEAD
                         .addGap(111, 111, 111)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -207,7 +207,7 @@ public class Grafico extends javax.swing.JFrame{
                             .addComponent(MegaRe, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Progreso, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(98, Short.MAX_VALUE))
-=======
+//=======
                         .addGap(34, 34, 34)
                         .addComponent(jButton1)
                         .addGap(32, 32, 32)
@@ -223,7 +223,7 @@ public class Grafico extends javax.swing.JFrame{
                             .addComponent(anno, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
->>>>>>> origin/master
+//>>>>>>> origin/master
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
