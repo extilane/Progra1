@@ -424,4 +424,8 @@ public class Grafico extends javax.swing.JFrame{
     private javax.swing.JLabel lDuracion;
     private javax.swing.JList lista;
     // End of variables declaration//GEN-END:variables
+
+    private void addContainerGap(int i, short MAX_VALUE) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
